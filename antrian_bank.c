@@ -35,12 +35,29 @@ int isFull(Queue *q) {
     return q->rear == MAX_QUEUE - 1;
 }
 
+// Memeriksa apakah ID nasabah sudah ada di antrian
+int isIdExists(Queue *q, int id) {
+    for (int i = q->front; i <= q->rear; i++) {
+        if (q->queue[i].id_nasabah == id) {
+            return 1; // ID sudah ada
+        }
+    }
+    return 0; // ID tidak ditemukan
+}
+
 // Menambahkan nasabah ke antrian
 void addQueue(Queue *q, Nasabah n) {
     if (isFull(q)) {
         printf("Antrian penuh! Tidak dapat menambahkan nasabah.\n");
         return;
     }
+
+    // Cek apakah ID nasabah sudah ada
+    if (isIdExists(q, n.id_nasabah)) {
+        printf("Nasabah dengan ID %d sudah ada dalam antrian!\n", n.id_nasabah);
+        return;
+    }
+
     if (isEmpty(q)) {
         q->front = 0;
     }
