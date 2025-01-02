@@ -25,7 +25,7 @@ int isFull(int queueType);
 void Enqueue();
 void Dequeue();
 void Clear();
-void Display();
+void PeekAll();
 void checkQueueStatus();
 int getNomorAntrian(const char* jenis_layanan);
 int menu();
@@ -167,7 +167,7 @@ void Dequeue() {
     }
 }
 
-void Display() {
+void PeekAll() {
     printf("\nDaftar Antrian Teller:\n");
     if (!isEmpty(1)) {
         for (int i = headTeller; i <= tailTeller; i++) {
@@ -237,13 +237,13 @@ void checkQueueStatus() {
 
 void displayAllCustomers() {
     printf("\nDaftar Semua Nasabah dalam Antrian:\n");
-    Display();
+    PeekAll();
 }
 
 int menu() {
     int pilihan;
     printf("\nPROGRAM ANTRIAN BANK\n\n");
-    Display();
+    PeekAll();
     printf("\n\nMENU\n1. Masukkan Antrian\n"
            "2. Antrian Selesai\n"
            "3. Kosongkan Antrian\n"
