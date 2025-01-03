@@ -144,7 +144,7 @@ void Dequeue() {
 
     if (pilihan == 1) {
         if (!isEmpty(1)) {
-            printf("\nNasabah %s (ID: %d) dari antrian Teller sedang dilayani.\n",
+            printf("\nNasabah %s (ID: %d) dari antrian Teller sudah selesai.\n",
                    tellerQueue[headTeller].nama_nasabah, tellerQueue[headTeller].id_nasabah);
             strcpy(tellerQueue[headTeller].status, "Dilayani");
             headTeller++;
@@ -154,7 +154,7 @@ void Dequeue() {
         }
     } else if (pilihan == 2) {
         if (!isEmpty(2)) {
-            printf("\nNasabah %s (ID: %d) dari antrian Customer Service sedang dilayani.\n",
+            printf("\nNasabah %s (ID: %d) dari antrian Customer Service sudah selesai.\n",
                    csQueue[headCS].nama_nasabah, csQueue[headCS].id_nasabah);
             strcpy(csQueue[headCS].status, "Dilayani");
             headCS++;
